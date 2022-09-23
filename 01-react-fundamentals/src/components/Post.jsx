@@ -21,6 +21,14 @@ export function Post() {
         <p>Visit <a href="www.test.com" target="_blank">test.com</a></p>
         <p><a href="#">#newproject</a></p>
       </div>
+
+      <form className={styles.commentForm}>
+        <strong>Leave your feedback</strong>
+        <textarea placeholder="Leave your comment" />
+        <footer>
+          <button type="submit">Comment</button>
+        </footer>
+      </form>
     </article>
   )
 }
