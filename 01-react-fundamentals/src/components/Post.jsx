@@ -16,7 +16,7 @@ export function Post({ author, publishedAt, content }) {
   function handleCreateNewComment(event) {
     event.preventDefault();
     setComments([...comments, newCommentText]);
-    setNewCommentText('');
+    setNewCommentText("");
   }
 
   function handleNewCommentChange(event) {
@@ -24,9 +24,13 @@ export function Post({ author, publishedAt, content }) {
   }
 
   function deleteComment(commentToDelete) {
-    const commentsWithoutDeletedOne = comments.filter(comment => comment !== commentToDelete);
+    const commentsWithoutDeletedOne = comments.filter(
+      (comment) => comment !== commentToDelete
+    );
     setComments(commentsWithoutDeletedOne);
   }
+
+  const isNewCommentEmpty = newCommentText.length === 0;
 
   return (
     <article className={styles.post}>
@@ -48,7 +52,7 @@ export function Post({ author, publishedAt, content }) {
       </header>
 
       <div className={styles.content}>
-        {content.map(row => {
+        {content.map((row) => {
           if (row.type === "paragraph") {
             return <p key={row.content}>{row.content}</p>;
           } else if (row.type === "link") {
@@ -65,15 +69,26 @@ export function Post({ author, publishedAt, content }) {
 
       <form onSubmit={handleCreateNewComment} className={styles.commentForm}>
         <strong>Leave your feedback</strong>
-        <textarea placeholder="Leave your comment" value={newCommentText} onChange={handleNewCommentChange} />
+        <textarea
+          placeholder="Leave your comment"
+          value={newCommentText}
+          onChange={handleNewCommentChange}
+          required
+        />
         <footer>
-          <button type="submit">Comment</button>
+          <button type="submit" disabled={isNewCommentEmpty}>
+            Comment
+          </button>
         </footer>
       </form>
 
       <div className={styles.commentList}>
-        {comments.map(comment => (
-          <Comment key={comment} content={comment} onDeleteComment={deleteComment} />
+        {comments.map((comment) => (
+          <Comment
+            key={comment}
+            content={comment}
+            onDeleteComment={deleteComment}
+          />
         ))}
       </div>
     </article>
