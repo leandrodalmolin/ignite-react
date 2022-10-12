@@ -1,12 +1,27 @@
-import { format, formatDistanceToNow } from 'date-fns';
+import { format, formatDistanceToNow } from "date-fns";
+import { useState } from "react";
 
-import { Avatar } from './Avatar';
-import { Comment } from './Comment';
-import styles from './Post.module.css';
+import { Avatar } from "./Avatar";
+import { Comment } from "./Comment";
+import styles from "./Post.module.css";
 
 export function Post({ author, publishedAt, content }) {
+  const [comments, setComments] = useState(["Cool post, hum?"]);
+  const [newCommentText, setNewCommentText] = useState("");
   const publishedDateFormatted = format(publishedAt, "d LLLL HH:mm'h'");
-  const publishedDateRelativeToNow = formatDistanceToNow(publishedAt, { addSuffix: true })
+  const publishedDateRelativeToNow = formatDistanceToNow(publishedAt, {
+    addSuffix: true,
+  });
+
+  function handleCreateNewComment(event) {
+    event.preventDefault();
+    setComments([...comments, newCommentText]);
+    setNewCommentText('');
+  }
+
+  function handleNewCommentChange(event) {
+    setNewCommentText(event.target.value);
+  }
 
   return (
     <article className={styles.post}>
@@ -19,34 +34,43 @@ export function Post({ author, publishedAt, content }) {
           </div>
         </div>
 
-        <time title={publishedDateFormatted} dateTime={publishedAt.toISOString()}>
+        <time
+          title={publishedDateFormatted}
+          dateTime={publishedAt.toISOString()}
+        >
           {publishedDateRelativeToNow}
         </time>
       </header>
 
       <div className={styles.content}>
         {content.map(row => {
-          if (row.type === 'paragraph') {
-            return <p>{row.content}</p>
-          } else if (row.type === 'link') {
-            return <p><a href="" target="_blank">{row.content}</a></p>
+          if (row.type === "paragraph") {
+            return <p key={row.content}>{row.content}</p>;
+          } else if (row.type === "link") {
+            return (
+              <p key={row.content}>
+                <a href="" target="_blank">
+                  {row.content}
+                </a>
+              </p>
+            );
           }
         })}
       </div>
 
-      <form className={styles.commentForm}>
+      <form onSubmit={handleCreateNewComment} className={styles.commentForm}>
         <strong>Leave your feedback</strong>
-        <textarea placeholder="Leave your comment" />
+        <textarea placeholder="Leave your comment" value={newCommentText} onChange={handleNewCommentChange} />
         <footer>
           <button type="submit">Comment</button>
         </footer>
       </form>
 
       <div className={styles.commentList}>
-        <Comment />
-        <Comment />
-        <Comment />
+        {comments.map(comment => (
+          <Comment key={comment} content={comment} />
+        ))}
       </div>
     </article>
-  )
+  );
 }
