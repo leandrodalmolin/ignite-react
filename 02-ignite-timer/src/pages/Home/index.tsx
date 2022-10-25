@@ -99,6 +99,12 @@ export function Home() {
   const task = watch('task')
   const isSubmitDisabled = !task
 
+  useEffect(() => {
+    if (activeCycle) {
+      document.title = `${minutes}:${seconds}`
+    }
+  }, [minutes, seconds, activeCycle])
+
   // Get zod validation messages
   // This is just for future reference since this project is using HTML validations
   // Note: "formState" comes from useForm
