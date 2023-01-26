@@ -15,6 +15,14 @@
             "category": "Food",
             "price": 15,
             "createdAt": "2023-01-26T11:23:53.270Z"
+        },
+        {
+            "id": 3,
+            "description": "React Course",
+            "type": "outcome",
+            "category": "Education",
+            "price": 300,
+            "createdAt": "2023-01-26T12:51:11.233Z"
         }
     ]
 }
