@@ -1,6 +1,6 @@
-export const dateFormatter = new Intl.DateTimeFormat('en-GB');
+export const dateFormatter = new Intl.DateTimeFormat('en-GB')
 
 export const priceFormatter = new Intl.NumberFormat('en-BG', {
-    style: 'currency',
-    currency: 'GBP'
-});
+  style: 'currency',
+  currency: 'GBP',
+})
