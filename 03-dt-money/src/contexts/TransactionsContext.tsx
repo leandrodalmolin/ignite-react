@@ -62,9 +62,13 @@ export function TransactionsProvider({ children }: TransactionsProviderProps) {
     [],
   )
 
+  /**
+   * Having fetchTransactions as a dependency here won't make it trigger more than once
+   * because the fetchTransactions' useCallback does not have any dependency
+   */
   useEffect(() => {
     fetchTransactions()
-  }, [])
+  }, [fetchTransactions])
 
   return (
     <TransactionsContext.Provider
