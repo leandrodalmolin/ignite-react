@@ -14,7 +14,7 @@ interface HomeProps {
     id: string;
     name: string;
     imageUrl: string;
-    price: number;
+    price: string;
   }[]
 }
 
@@ -30,7 +30,17 @@ export default function Home({ products }: HomeProps) {
     <HomeContainer ref={sliderRef} className="keen-slider">
       {products.map(product => {
         return (
-          <Link key={product.id} href={`/product/${product.id}`}>
+          /** 
+           * 1. NextJS prefetches all visible links in the viewport so it can be
+           *    quickly loaded when such link is clicked. If the current page have multiples links,
+           *    this behaviour can cause performance issues. Setting prefetch as false will only
+           *    prefetch data when the link is hovered.
+           */
+          <Link
+            key={product.id}
+            href={`/product/${product.id}`}
+            prefetch={false} // [1]
+          >
             <Product className="keen-slider__slide">
               <Image src={product.imageUrl} width={520} height={480} alt="" />
 
