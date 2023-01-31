@@ -1,7 +1,9 @@
 import { stripe } from "@/lib/stripe"
 import { ImageContainer, ProductContainer, ProductDetails } from "@/styles/pages/product"
+import axios from "axios"
 import { GetStaticPaths, GetStaticProps } from "next"
 import Image from "next/image"
+import { useState } from "react"
 import Stripe from "stripe"
 
 interface ProductsProps {
@@ -11,10 +13,28 @@ interface ProductsProps {
         imageUrl: string;
         description: string;
         price: string;
+        defaultPriceId: string;
     }
 }
 
 export default function Product({ product }: ProductsProps) {
+    const [isCreatingCheckoutSession, setIsCreatingCheckoutSession] = useState(false);
+
+    async function handleBuyProduct() {
+        try {
+            setIsCreatingCheckoutSession(true);
+            const response = await axios.post('/api/checkout', {
+                priceId: product.defaultPriceId
+            });
+
+            const { checkoutUrl } = response.data;
+            window.location.href = checkoutUrl;
+        } catch (error) {
+            setIsCreatingCheckoutSession(false);
+            alert('Checkout redirection failed!');
+        }
+    }
+
     return (
         <ProductContainer>
             <ImageContainer>
@@ -25,7 +45,7 @@ export default function Product({ product }: ProductsProps) {
                 <h1>{product.name}</h1>
                 <span>{product.price}</span>
                 <p>{product.description}</p>
-                <button>Buy now</button>
+                <button disabled={isCreatingCheckoutSession} onClick={handleBuyProduct}>Buy now</button>
             </ProductDetails>
         </ProductContainer>
     )
@@ -51,7 +71,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
          *   from useRouter hook in the "getStaticProps" function
          * - 'blocking': does not show anything until the full page is loaded
          */
-        fallback: false
+        fallback: 'blocking'
     }
 }
 
@@ -80,7 +100,8 @@ export const getStaticProps: GetStaticProps<any, { id: string }> = async ({ para
                 price: new Intl.NumberFormat('en-GB', {
                     style: 'currency',
                     currency: 'GBP'
-                }).format(price.unit_amount ? price.unit_amount / 100 : 0)
+                }).format(price.unit_amount ? price.unit_amount / 100 : 0),
+                defaultPriceId: price.id
             }
         },
         revalidate: 60 * 60 * 1, // 1 hour
