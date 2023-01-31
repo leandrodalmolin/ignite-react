@@ -1,3 +1,4 @@
+import Head from "next/head";
 import { HomeContainer, Product } from "@/styles/pages/home";
 import Image from "next/image";
 import Link from "next/link";
@@ -27,32 +28,38 @@ export default function Home({ products }: HomeProps) {
   })
 
   return (
-    <HomeContainer ref={sliderRef} className="keen-slider">
-      {products.map(product => {
-        return (
-          /** 
-           * 1. NextJS prefetches all visible links in the viewport so it can be
-           *    quickly loaded when such link is clicked. If the current page have multiples links,
-           *    this behaviour can cause performance issues. Setting prefetch as false will only
-           *    prefetch data when the link is hovered.
-           */
-          <Link
-            key={product.id}
-            href={`/product/${product.id}`}
-            prefetch={false} // [1]
-          >
-            <Product className="keen-slider__slide">
-              <Image src={product.imageUrl} width={520} height={480} alt="" />
+    <>
+      <Head>
+        <title>Home | Ignite Shop</title>
+      </Head>
 
-              <footer>
-                <strong>{product.name}</strong>
-                <span>{product.price}</span>
-              </footer>
-            </Product>
-          </Link>
-        )
-      })}
-    </HomeContainer>
+      <HomeContainer ref={sliderRef} className="keen-slider">
+        {products.map(product => {
+          return (
+            /** 
+             * 1. NextJS prefetches all visible links in the viewport so it can be
+             *    quickly loaded when such link is clicked. If the current page have multiples links,
+             *    this behaviour can cause performance issues. Setting prefetch as false will only
+             *    prefetch data when the link is hovered.
+             */
+            <Link
+              key={product.id}
+              href={`/product/${product.id}`}
+              prefetch={false} // [1]
+            >
+              <Product className="keen-slider__slide">
+                <Image src={product.imageUrl} width={520} height={480} alt="" />
+
+                <footer>
+                  <strong>{product.name}</strong>
+                  <span>{product.price}</span>
+                </footer>
+              </Product>
+            </Link>
+          )
+        })}
+      </HomeContainer>
+    </>
   )
 }
 
