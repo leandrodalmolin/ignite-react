@@ -2,6 +2,7 @@
 
 # dependencies
 /node_modules
+/packages/docs/node_modules
 
 # misc
 .DS_Store
