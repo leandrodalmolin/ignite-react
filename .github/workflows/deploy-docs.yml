@@ -18,8 +18,10 @@ jobs:
           node-version: 16
 
       - run: npm ci
+        working-directory: ./05-design-system/
 
       - run: npm run build
+        working-directory: ./05-design-system/
 
       - name: Deploy storybook
         working-directory: ./05-design-system/packages/docs
