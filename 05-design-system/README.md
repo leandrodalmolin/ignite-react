@@ -16,7 +16,8 @@
 
 ## GitHub actions
 
-Automatically deploy Storybook to production when code is pushed to the `main` branch.
+- Automatically deploy Storybook to production when code is pushed to the `main` branch.
+- Automatically build and publish packages to NPM when code is pushed to the `main` branch.
 
 ### Caching
 
