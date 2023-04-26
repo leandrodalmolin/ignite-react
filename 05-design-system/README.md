@@ -16,7 +16,7 @@ Live documentation: https://leandrodalmolin.github.io/ignite-react/
 
 ### Reasons to use Turborepo
 - Helps to execute scripts on every package
-- Speeds up building time by caching the build locally doing an incremental build (only build stuff that has changed)
+- Speeds up building time by caching the build locally and doing an incremental build (only build stuff that has changed)
 
 ## Components
 
