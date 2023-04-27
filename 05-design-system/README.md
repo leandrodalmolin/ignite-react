@@ -41,6 +41,7 @@ Note: we need to log in to the npm account via the terminal so the changes can g
   - update packages versions (package.json files) based on the changeset added previously
   - update the CHANGELOG.md file with the latest changes using the extra info added on the changeset step
 - `npm run release`
+  - automatically done by the release action
   - build and publish all changed packages to npm
 
 ## Components
