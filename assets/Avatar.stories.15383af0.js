@@ -1,0 +1,2 @@
+import{A as t}from"./index.13080a28.js";import"./index.75b2c3cd.js";import"./index.6cf5dbfc.js";import"./iframe.5e9d3dd2.js";import"./index.df662e69.js";import"./jsx-runtime.139d2c91.js";const p={title:"Data display/Avatar",component:t,args:{src:"https://github.com/leandrodalmolin.png",alt:"Leandro Dal Molin"},argTypes:{src:{control:{type:"text"}}}},m={},n={args:{src:void 0}},c=["Primary","WithFallback"];export{m as Primary,n as WithFallback,c as __namedExportsOrder,p as default};
+//# sourceMappingURL=Avatar.stories.15383af0.js.map

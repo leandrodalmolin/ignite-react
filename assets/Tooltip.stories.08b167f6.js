@@ -1,0 +1,2 @@
+import{g as o,T as t}from"./index.13080a28.js";import{j as r}from"./jsx-runtime.139d2c91.js";import"./index.75b2c3cd.js";import"./index.6cf5dbfc.js";import"./iframe.5e9d3dd2.js";import"./index.df662e69.js";const l={title:"Data Display/Tooltip",component:o,args:{content:"Some text",children:r(t,{as:"span",children:"Tooltip Trigger"})},argTypes:{children:{control:{type:null}}}},m={},c=["Primary"];export{m as Primary,c as __namedExportsOrder,l as default};
+//# sourceMappingURL=Tooltip.stories.08b167f6.js.map
