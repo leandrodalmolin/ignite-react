@@ -1,6 +1,0 @@
-{
-  "extends": "@ldm-ignite-ui/ts-config/react.json",
-  "include": [
-    "src"
-  ]
-}
