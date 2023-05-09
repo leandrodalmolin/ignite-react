@@ -1,5 +1,12 @@
 # @ldm-ignite-ui/react
 
+## 1.3.0
+
+### Minor Changes
+
+- Add size variant to TextInput component
+- Add dist folder as reference when package is installed as a dependency
+
 ## 1.2.0
 
 ### Minor Changes

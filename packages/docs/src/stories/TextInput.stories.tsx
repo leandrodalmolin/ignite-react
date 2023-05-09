@@ -4,7 +4,20 @@ import { Box, Text, TextInput, TextInputProps } from '@ldm-ignite-ui/react'
 export default {
   title: 'Form/TextInput',
   component: TextInput,
-  args: {},
+  args: {
+    size: 'md'
+  },
+  argTypes: {
+    size: {
+      options: [
+        'sm',
+        'md',
+      ],
+      control: {
+        type: 'inline-radio',
+      },
+    },
+  },
   decorators: [
     (Story) => {
       return (
