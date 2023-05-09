@@ -1,3 +1,5 @@
+import { Heading } from '@ldm-ignite-ui/react'
+
 export default function Home() {
-  return <h1>Home</h1>
+  return <Heading>Home</Heading>
 }
