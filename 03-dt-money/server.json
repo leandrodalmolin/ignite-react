@@ -1,0 +1,44 @@
+{
+  "transactions": [
+    {
+      "id": 1,
+      "description": "Website development",
+      "type": "income",
+      "category": "Sale",
+      "price": 14000,
+      "createdAt": "2023-01-26T11:22:53.270Z"
+    },
+    {
+      "id": 2,
+      "description": "Hamburger",
+      "type": "outcome",
+      "category": "Food",
+      "price": 15,
+      "createdAt": "2023-01-26T11:23:53.270Z"
+    },
+    {
+      "id": 3,
+      "description": "React Course",
+      "type": "outcome",
+      "category": "Education",
+      "price": 300,
+      "createdAt": "2023-01-26T12:51:11.233Z"
+    },
+    {
+      "description": "App development",
+      "category": "Sale",
+      "price": 10000,
+      "type": "income",
+      "createdAt": "2023-01-27T11:17:06.089Z",
+      "id": 4
+    },
+    {
+      "description": "Cookies",
+      "category": "Food",
+      "price": 2,
+      "type": "outcome",
+      "createdAt": "2023-01-27T11:36:23.995Z",
+      "id": 5
+    }
+  ]
+}
