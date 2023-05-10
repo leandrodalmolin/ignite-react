@@ -9,7 +9,7 @@ export default function Home() {
   return (
     <Container>
       <Hero>
-        <Heading size="4xl">Uncomplicated scheduling</Heading>
+        <Heading size="4xl">Simple scheduling</Heading>
         <Text size="xl">
           Connect your calendar and let people book appointments in their free
           time.
