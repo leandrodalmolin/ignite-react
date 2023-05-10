@@ -3,6 +3,7 @@ import { Heading, Text } from '@ldm-ignite-ui/react'
 import { Container, Hero, Preview } from './styles'
 
 import previewImage from '../../assets/app-preview.png'
+import { ClaimUsernameForm } from './components/ClaimUsernameForm'
 
 export default function Home() {
   return (
@@ -13,7 +14,10 @@ export default function Home() {
           Connect your calendar and let people book appointments in their free
           time.
         </Text>
+
+        <ClaimUsernameForm />
       </Hero>
+
       <Preview>
         <Image
           src={previewImage}
