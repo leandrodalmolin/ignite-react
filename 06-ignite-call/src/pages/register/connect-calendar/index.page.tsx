@@ -1,3 +1,4 @@
+import { signIn } from 'next-auth/react'
 import { ArrowRight } from 'phosphor-react'
 import { Button, Heading, MultiStep, Text } from '@ldm-ignite-ui/react'
 import { Container, Header } from '../styles'
@@ -19,7 +20,11 @@ export default function ConnectCalendar() {
       <ConnectBox>
         <ConnectItem>
           <Text>Google Calendar</Text>
-          <Button variant="secondary" size="sm">
+          <Button
+            variant="secondary"
+            size="sm"
+            onClick={() => signIn('google')}
+          >
             Connect
             <ArrowRight />
           </Button>
