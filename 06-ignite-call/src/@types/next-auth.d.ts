@@ -2,7 +2,8 @@
 import NextAuth from 'next-auth'
 
 /**
- * Override next-auth types since the default structure was changed
+ * Change next-auth types since the default structure was changed
+ * Note: this is an extension and not an override
  */
 declare module 'next-auth' {
   export interface User {
@@ -11,5 +12,9 @@ declare module 'next-auth' {
     email: string
     username: string
     avatar_url: string
+  }
+
+  export interface Session {
+    user: User
   }
 }
