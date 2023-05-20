@@ -4,6 +4,7 @@ import { Controller, useFieldArray, useForm } from 'react-hook-form'
 import { ArrowRight } from 'phosphor-react'
 import { getWeekDays } from '@/utils/get-week-days'
 import { convertTimeStringToMinutes } from '@/utils/convert-time-string-to-minutes'
+import { api } from '@/lib/axios'
 import {
   Button,
   Checkbox,
@@ -110,8 +111,11 @@ export default function TimeIntervals() {
   // For now, as a workaround, we treat data as any and force the type
   // inside the function preventing the type error on "handleSetTimeIntervals"
   async function handleSetTimeIntervals(data: any) {
-    const formData = data as TimeIntervalsFormOutput
-    console.log(formData)
+    const { intervals } = data as TimeIntervalsFormOutput
+
+    await api.post('/users/time-intervals', {
+      intervals,
+    })
   }
 
   return (
