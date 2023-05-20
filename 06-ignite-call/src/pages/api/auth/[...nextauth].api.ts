@@ -10,6 +10,7 @@ export function buildNextAuthOptions(
   return {
     adapter: PrismaAdapter(req, res),
     providers: [
+      // About Google Provider: https://next-auth.js.org/providers/google
       GoogleProvider({
         clientId: process.env.GOOGLE_CLIENT_ID ?? '',
         clientSecret: process.env.GOOGLE_CLIENT_SECRET ?? '',

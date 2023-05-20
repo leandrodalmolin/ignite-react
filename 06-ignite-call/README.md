@@ -14,6 +14,8 @@ We also took the opportunity to normalise the fields' nomenclature.
 
 Due to these changes, we had to amend the next-auth types to accommodate the new Prisma structure (@types/next-auth.d.ts).
 
+For more: https://authjs.dev/guides/adapters/creating-a-database-adapter
+
 ### Auth flow
 
 - The user is added to the database during the registration
