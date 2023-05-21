@@ -18,6 +18,9 @@ const timeIntervalsBodySchema = z.object({
   ),
 })
 
+/**
+ * Persist time intervals to the database
+ */
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse,
