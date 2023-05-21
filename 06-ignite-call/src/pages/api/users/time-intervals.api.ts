@@ -26,7 +26,7 @@ export default async function handler(
     return res.status(405).end()
   }
 
-  // Get logged user info from cookies
+  // Get logged user info from session
   // https://next-auth.js.org/configuration/nextjs#getserversession
   const session = await getServerSession(
     req,
