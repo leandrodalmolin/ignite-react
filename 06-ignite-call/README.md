@@ -27,3 +27,13 @@ For more: https://authjs.dev/guides/adapters/creating-a-database-adapter
 ## Cookies
 
 Using the `nookies` to handle cookies in Next.js and `@types/cookie` for types (lib uses the cookie lib behind the scenes).
+
+## Docker
+
+Using Docker for MySQL.
+
+- Command used to create MySQL container: `docker run --name mysql -e MYSQL_ROOT_PASSWORD=password-here -p 3306:3306 mysql:latest`
+- Start container: `docker start mysql`
+- Stop container: `docker stop mysql`
+
+[Install Docker Desktop on Mac](https://docs.docker.com/desktop/install/mac-install/)
