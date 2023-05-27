@@ -1,5 +1,7 @@
 # Ignite Call
 
+Live URL: https://ignite-call-ldm.vercel.app
+
 ## Prisma
 
 - Migration: `npx prisma migrate dev`
@@ -53,3 +55,7 @@ This issue can be solved by explicitly generating Prisma Client on every deploym
 
 - [Docs about the issue](https://www.prisma.io/docs/guides/other/troubleshooting-orm/help-articles/vercel-caching-issue)
 - [Chosen solution - custom postinstall script](https://www.prisma.io/docs/guides/other/troubleshooting-orm/help-articles/vercel-caching-issue#a-custom-postinstall-script)
+
+## Disable auto deploy on push (Vercel)
+
+For more: https://vercel.com/docs/concepts/projects/project-configuration/git-configuration
