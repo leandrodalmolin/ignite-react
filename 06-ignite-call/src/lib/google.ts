@@ -4,7 +4,11 @@ import { prisma } from './prisma'
 import dayjs from 'dayjs'
 
 /**
- * Authenticate with Google and refresh tokens in case they are expired
+ * Authenticate with Google and refresh tokens in case they are expired.
+ *
+ * How it works:
+ * It consists of sending a secondary token (refresh token) to the provider
+ * and receiving a new access token and consequently a new secondary token in return.
  */
 export async function getGoogleOAuthToken(userId: string) {
   const account = await prisma.account.findFirstOrThrow({
