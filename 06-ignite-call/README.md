@@ -5,6 +5,10 @@
 - Migration: `npx prisma migrate dev`
 - View and manipulate database: `npx prisma studio`
 
+Using MySQL for development (see Docker section below) and PlanetScale for production.
+
+- Execute migrations in the production DB: `npx prisma db push`
+
 ### Custom adapter
 
 Please note that a custom Prisma adapter was created. Our flow is slightly different from the already existing Prisma adapter.
