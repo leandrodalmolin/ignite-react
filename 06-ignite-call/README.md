@@ -7,7 +7,10 @@
 
 Using MySQL for development (see Docker section below) and PlanetScale for production.
 
-- Execute migrations in the production DB: `npx prisma db push`
+How to execute migrations on PlanetScale:
+- Make sure we are using the migration branch on DATABASE_URL (.env file)
+- Execute the migrations command in the root folder: `npx prisma db push`
+- Go to PlanetScale and deploy changes from "migrations" to the "main" branch
 
 ### Custom adapter
 
@@ -41,3 +44,12 @@ Using Docker for MySQL.
 - Stop container: `docker stop mysql`
 
 [Install Docker Desktop on Mac](https://docs.docker.com/desktop/install/mac-install/)
+
+## Vercel build dependency caching workaround
+
+Vercel caches the dependencies of your project until one of those dependencies changes. It does this to allow faster builds, and while this is typically a good thing, it causes some problems for Prisma Client.
+
+This issue can be solved by explicitly generating Prisma Client on every deployment. Running prisma generate before each deployment will ensure Prisma Client is up-to-date.
+
+- [Docs about the issue](https://www.prisma.io/docs/guides/other/troubleshooting-orm/help-articles/vercel-caching-issue)
+- [Chosen solution - custom postinstall script](https://www.prisma.io/docs/guides/other/troubleshooting-orm/help-articles/vercel-caching-issue#a-custom-postinstall-script)
