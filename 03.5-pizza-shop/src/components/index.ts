@@ -1,6 +1,7 @@
 export * from './theme/theme-provider'
 export * from './theme/theme-toggle'
 export * from './ui/button'
+export * from './ui/card'
 export * from './ui/dialog'
 export * from './ui/dropdown-menu'
 export * from './ui/input'
