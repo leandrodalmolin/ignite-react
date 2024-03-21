@@ -136,7 +136,7 @@ export function StoreProfileDialog() {
             </Button>
           </DialogClose>
           <Button type="submit" variant="success" disabled={isSubmitting}>
-            Salve
+            Save
           </Button>
         </DialogFooter>
       </form>
