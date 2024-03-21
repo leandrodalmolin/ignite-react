@@ -42,6 +42,12 @@ Notes:
 - `jsdom` was replaced with `happy-dom`
 - global setup can be found on `vite.config.ts` so there's no need to import testing libs in the test files
 
+## Mock Service Worker
+
+With MSW, we can intercept outgoing requests, observe them, and respond to them using mocked responses.
+
+Using `MSW` instead of `MirageJS` for mocks since it facilitates debugging keeping all the HTTP requests in the network tab.
+
 ## Project setup
 
 ```
@@ -52,6 +58,12 @@ pnpm install
 
 ```
 pnpm run dev
+```
+
+### Start dev server with MSW
+
+```
+pnpm run dev:test
 ```
 
 ### Build for production
