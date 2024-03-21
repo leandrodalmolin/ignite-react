@@ -1,30 +1,79 @@
-# React + TypeScript + Vite
+# Pizza Shop
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Table of contents
 
-Currently, two official plugins are available:
+- [The project](#the-project)
+- [Requirements](#requirements)
+- [Built with](#built-with)
+- [Test Environment](#test-environment)
+- [Project setup](#project-setup)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## The project
 
-## Expanding the ESLint configuration
+Pizza Shop Dashboard with login system.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+For the backend, please [clone the project here](https://github.com/rocketseat-education/pizzashop-api) and run it locally.
 
-- Configure the top-level `parserOptions` property like this:
+## Requirements
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: "latest",
-    sourceType: "module",
-    project: ["./tsconfig.json", "./tsconfig.node.json"],
-    tsconfigRootDir: __dirname,
-  },
-};
+- Node 18.18.0
+- pnpm 8.1.0
+
+## Built with
+
+- Vite
+- ReactJS
+- TypeScript
+- Shadcn UI
+- React Hook Form
+- Zod (validation)
+- React Router
+- Tailwind
+- React Query
+- Axios
+- Vitest
+
+## Test environment
+
+Using Vitest with React Testing Library for unit tests.
+
+Notes:
+
+- `jsdom` was replaced with `happy-dom`
+- global setup can be found on `vite.config.ts` so there's no need to import testing libs in the test files
+
+## Project setup
+
+```
+pnpm install
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+### Start dev server
+
+```
+pnpm run dev
+```
+
+### Build for production
+
+```
+pnpm run build
+```
+
+### Locally preview production build
+
+```
+pnpm run preview
+```
+
+### Lint files
+
+```
+pnpm run lint
+```
+
+### Tests
+
+```
+pnpm run test
+```
