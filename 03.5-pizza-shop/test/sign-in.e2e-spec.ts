@@ -8,7 +8,7 @@ test('sign in successfully', async ({ page }) => {
 
   const toast = page.getByText('An authentication link was sent to your email.')
 
-  expect(toast).toBeVisible()
+  await expect(toast).toBeVisible()
 
   // Debug only: playwright ui bug show last action as a blank page
   // await page.waitForTimeout(2000)
@@ -22,7 +22,7 @@ test('sign in with wrong credentials', async ({ page }) => {
 
   const toast = page.getByText('Invalid credentials.')
 
-  expect(toast).toBeVisible()
+  await expect(toast).toBeVisible()
 })
 
 test('navigate to new partner page', async ({ page }) => {
