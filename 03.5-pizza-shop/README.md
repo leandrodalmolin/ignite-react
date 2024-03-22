@@ -32,6 +32,7 @@ For the backend, please [clone the project here](https://github.com/rocketseat-e
 - React Query
 - Axios
 - Vitest
+- Playwright
 
 ## Test environment
 
@@ -84,8 +85,14 @@ pnpm run preview
 pnpm run lint
 ```
 
-### Tests
+### Unit Tests
 
 ```
 pnpm run test
+```
+
+### E2E Tests
+
+```
+pnpm playwright test --ui
 ```
