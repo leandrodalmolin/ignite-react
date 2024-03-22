@@ -1,81 +1,89 @@
-# Pizza Shop
+# Pizza Shop Dashboard
 
-## Table of contents
+## Table of Contents
 
-- [The project](#the-project)
+- [Introduction](#introduction)
 - [Requirements](#requirements)
 - [Built with](#built-with)
-- [Test Environment](#test-environment)
-- [Project setup](#project-setup)
+- [Unit Tests](#unit-tests)
+- [End-to-End Tests](#end-to-end-tests)
+- [Mock Service Worker](#mock-service-worker)
+- [Project Setup](#project-setup)
 
-## The project
+## Introduction
 
-Pizza Shop Dashboard with login system.
+Welcome to the Pizza Shop Dashboard, a web application designed for managing pizza orders with a secure login system.
 
-For the backend, please [clone the project here](https://github.com/rocketseat-education/pizzashop-api) and run it locally.
+To get started, you'll need to set up the backend by cloning the [pizzashop-api](https://github.com/rocketseat-education/pizzashop-api) repository and running it locally.
 
 ## Requirements
 
-- Node 18.18.0
+Before running the project, ensure you have the following installed:
+
+- Node.js 18.18.0
 - pnpm 8.1.0
 
 ## Built with
+
+This project is built using the following technologies:
 
 - Vite
 - ReactJS
 - TypeScript
 - Shadcn UI
 - React Hook Form
-- Zod (validation)
+- Zod (for validation)
 - React Router
-- Tailwind
+- Tailwind CSS
 - React Query
 - Axios
 - Vitest
 - Playwright
 
-## Test environment
+## Unit Tests
 
-Using Vitest with React Testing Library for unit tests.
+Unit tests are conducted using Vitest along with React Testing Library. Notable points include:
 
-Notes:
+- Replacement of `jsdom` with `happy-dom`.
+- Global setup is configured in `vite.config.ts`, eliminating the need to import testing libraries in test files.
 
-- `jsdom` was replaced with `happy-dom`
-- global setup can be found on `vite.config.ts` so there's no need to import testing libs in the test files
+## End-to-End Tests
+
+End-to-end (E2E) tests are performed using Playwright, offering advantages such as parallel test execution. This enhances efficiency compared to Cypress.
 
 ## Mock Service Worker
 
-With MSW, we can intercept outgoing requests, observe them, and respond to them using mocked responses.
+Mock Service Worker (MSW) is employed for mocking data in E2E tests. MSW allows intercepting outgoing requests, observing them, and responding with mocked responses. It is preferred over MirageJS for its facilitation of debugging, keeping all HTTP requests visible in the network tab.
 
-Using `MSW` instead of `MirageJS` for mocks since it facilitates debugging keeping all the HTTP requests in the network tab.
+## Project Setup
 
-## Project setup
+Follow these steps to set up the project:
 
-```
+```bash
 pnpm install
 ```
 
 ### Start dev server
 
-```
+```bash
 pnpm run dev
 ```
 
 ### Start dev server with MSW
 
-```
+```bash
 pnpm run dev:test
 ```
 
 ### Build for production
 
-```
+```bash
 pnpm run build
 ```
 
-### Locally preview production build
+### Preview production build locally
 
-```
+```bash
 pnpm run preview
 ```
 
@@ -85,13 +93,13 @@ pnpm run preview
 pnpm run lint
 ```
 
-### Unit Tests
+### Run unit tests
 
 ```
 pnpm run test
 ```
 
-### E2E Tests
+### Run E2E tests
 
 ```
 pnpm playwright test --ui
