@@ -2,17 +2,14 @@
 
 Live URL: https://ignite-call-ldm.vercel.app
 
+IMPORTANT: PlanetScale no longer has a free account so the database was changed from MySQL to PostgreSQL and it is now hosted at [neon.tech](https://neon.tech).
+
+Updates to the codebase were done following a [Rocketseat guide](https://efficient-sloth-d85.notion.site/Ignite-Call-Postgres-dev-e-prod-bd105befe0ab411cb7074aad72819613).
+
 ## Prisma
 
 - Migration: `npx prisma migrate dev`
 - View and manipulate database: `npx prisma studio`
-
-Using MySQL for development (see Docker section below) and PlanetScale for production.
-
-How to execute migrations on PlanetScale:
-- Make sure we are using the migration branch on DATABASE_URL (.env file)
-- Execute the migrations command in the root folder: `npx prisma db push`
-- Go to PlanetScale and deploy changes from "migrations" to the "main" branch
 
 ### Custom adapter
 
@@ -39,11 +36,11 @@ Using the `nookies` to handle cookies in Next.js and `@types/cookie` for types (
 
 ## Docker
 
-Using Docker for MySQL.
+### PostgresSQL
 
-- Command used to create MySQL container: `docker run --name mysql -e MYSQL_ROOT_PASSWORD=password-here -p 3306:3306 mysql:latest`
-- Start container: `docker start mysql`
-- Stop container: `docker stop mysql`
+- Command used to create PostgreSQL container: `docker run --name postgres -e POSTGRES_PASSWORD=docker -p 5432:5432 -d postgres`
+- Start container: `docker start postgres`
+- Stop container: `docker stop postgres`
 
 [Install Docker Desktop on Mac](https://docs.docker.com/desktop/install/mac-install/)
 
